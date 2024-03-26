@@ -1,6 +1,6 @@
 # HU_syllabus_scan
 ## 使い方(GCCとかpythonは自分で環境構築してくれ)
-  1. GCC、pythonをインストール。pipでrequestsとbeautifulsoup4をインストール。Makefileを使うからgccと分けてインストールするより```sudo apt install build-essential```のほうがいいかも?(build-essentialに何が入ってるか知らん)
+  1. GCC、pythonをインストール。pipで```requests```と```beautifulsoup4```をインストール。Makefileを使うからgccと分けてインストールするより```sudo apt install build-essential```のほうがいいかも?(build-essentialに何が入ってるか知らん)
   1. このリポジトリをクローンする
   2. src/main.pyのurl_home=url+"urlの後半";で自分の学部のシラバスの"/"以後"2023_15.html"の部分をコピペする。(_15は情報科学部、総科は01、文学は02だったのでシラバスホームの上からの並び順だと思われる)
   4. UTF-8が正しく表示される環境のターミナルでMakefileと同じディレクトリに移動する
