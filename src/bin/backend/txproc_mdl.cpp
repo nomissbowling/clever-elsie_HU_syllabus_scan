@@ -25,7 +25,11 @@ void align_tag(string&text,int m){
 }
 void rm_tags(string&text){
 	vector<string>patt={
-		"<[/]{0,1}(TR|tr|head|HEAD|html|HTML|table|TABLE|body|BODY)[^>]*>",
+		"<[/]{0,1}[bB][oO][dD][yY][^>]*>",
+		"<[/]{0,1}[tT][rR][^>]*>",
+		"<[/]{0,1}[hH][eE][aA][dD][^>]*>",
+		"<[/]{0,1}[hH][tT][mM][lL][^>]*>",
+		"<[/]{0,1}[tT][aA][bB][lL][eE][^>]*>",
 		"<META[^>]*>",
 		"<title[^>]*>[^<]*</title>",
 		"\n{2}","&nbsp;"};

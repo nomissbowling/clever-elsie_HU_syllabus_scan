@@ -30,19 +30,9 @@ void vvs_term(vector<vector<string>>&clist,vector<vector<string>>&vvs,pair<int,i
 					}
 				}
 				if(T.second==12){
-					for(;itr!=s.end();itr++){
-						if(*itr==*fb.begin()){
-							t=1;
-							break;
-						}
-					}
+					t=(regex_search(s,regex("前期"))?1:0);
 				}else{
-					for(;itr!=s.end();itr++){
-						if(*itr==*(fb.begin()+1)){
-							t=1;
-							break;
-						}
-					}
+					t=(regex_search(s,regex("後期"))?1:0);
 				}
 				if((g==T.first)&&(t==1)){
 					vvs.push_back(clist[i]);
