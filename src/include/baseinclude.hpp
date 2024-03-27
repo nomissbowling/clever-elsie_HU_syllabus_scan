@@ -1,3 +1,5 @@
+#ifndef BASEINCLUDE_H
+#define BASEINCLUDE_H
 #pragma once
 #include <filesystem>
 #pragma once
@@ -10,3 +12,4 @@
 #include <vector>
 #pragma once
 #include <regex>
+#endif
