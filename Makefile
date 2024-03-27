@@ -27,7 +27,9 @@ build: $(MAIN) $(MAINP) $(CFL)
 	mkdir syll
 	mkdir build
 	python3 $(MAINP)
-	$(MAKE) run
-run:$(MAIN) $(CFL)
 	g++ $(MAIN) -o main $(CFL) $(OPT)
+	$(MAKE) test
+run:$(MAIN) $(CFL)
+	./main 1
+test:$(MAIN) $(CFL)
 	./main

@@ -14,7 +14,7 @@ void format_tag(string&text){
 }
 void align_tag(string&text,int m){
 	int r=0;
-	vector<string>tag={"DH","dh"};
+	vector<vector<char>>tag={{'D','H'},{'d','h'}};
 	for(size_t i=1;i<text.size()-1;i++){
 		if(text[i]=='t'||text[i]=='T'){
 			if(text[i+1]==tag[0][m]||text[i+1]==tag[1][m])
@@ -25,11 +25,7 @@ void align_tag(string&text,int m){
 }
 void rm_tags(string&text){
 	vector<string>patt={
-		"<[/]{0,1}[bB][oO][dD][yY][^>]*>",
-		"<[/]{0,1}[tT][rR][^>]*>",
-		"<[/]{0,1}[hH][eE][aA][dD][^>]*>",
-		"<[/]{0,1}[hH][tT][mM][lL][^>]*>",
-		"<[/]{0,1}[tT][aA][bB][lL][eE][^>]*>",
+		"<[/]{0,1}(body|BODY|tr|TR|head|HEAD|html|HTML|table|TABLE)*>",
 		"<META[^>]*>",
 		"<title[^>]*>[^<]*</title>",
 		"\n{2}","&nbsp;"};

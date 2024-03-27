@@ -1,15 +1,34 @@
 #include "../../include/backend/text_processing.hpp"
 using namespace std;
-void getline(ifstream&ifs,string&text){
+void getln(ifstream&ifs,string&text){
 	string s;
 	ifs >> s;
 	while(*(s.begin())==' '){
 		s.erase(s.begin());
 	}
-	regex_replace(text,regex("<(br|BR)>"),"");
+	text=regex_replace(text,regex("<(BR|br)>"),"");
 	if (*(s.begin()) != '\n')
 		text+=s+'\n';
 	return;
+}
+void getln(string&s,vector<string>&vs){
+	while(s.size()>0){
+		if(*(s.begin())=='\n'){
+			break;
+		}
+		auto itr=s.begin()+1;
+		for(;itr!=s.end()-1;itr++){
+			if(*itr=='\"'){
+				if(*(itr+1)==','||*(itr+1)=='\n'){
+					itr++;
+					break;
+				}
+			}
+		}
+		string token(s.begin()+1,itr-1);
+		s.erase(s.begin(),itr+1);
+		vs.push_back(token);
+	}
 }
 void preproc_tags(string&text){
 	format_tag(text);

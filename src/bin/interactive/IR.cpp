@@ -2,7 +2,9 @@
 using namespace std;
 void vvs_term(vector<vector<string>>&clist,vector<vector<string>>&vvs,pair<int,int>&T){
 	for(size_t i=0;i<clist.size();i++){
-		if(clist[i][cid::term].size()){
+		if(i < clist.size() &&
+		 clist[i].size() > cid::term &&
+		  clist[i][cid::term].size() > 0){
 			string s=clist[i][cid::term];
 			if(T.second<10){
 				int g=-1,t=-1;
