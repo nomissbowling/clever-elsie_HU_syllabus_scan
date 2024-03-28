@@ -21,11 +21,7 @@ build: $(MAIN) $(MAINP) $(CFL)
 	@if [ -d syll ]; then \
 		rm -rf syll; \
 	fi
-	@if [ -d build ]; then \
-		rm -rf build; \
-	fi
 	mkdir syll
-	mkdir build
 	python3 $(MAINP)
 	g++ $(MAIN) -o main $(CFL) $(OPT)
 	$(MAKE) test
