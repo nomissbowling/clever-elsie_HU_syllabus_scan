@@ -1,7 +1,7 @@
 import requests
 
 url="https://momiji.hiroshima-u.ac.jp/syllabusHtml/"
-url_home=url+"2023_15.html"
+url_home=url+"2024_15.html"
 response = requests.get(url_home)
 syllabus_home = response.text
 
