@@ -1,16 +1,10 @@
 OPT=-finput-charset=utf-8 -fexec-charset=utf-8 -std=c++2a
 MAIN=src/main.cpp
 MAINP=src/main.py
-BACK=src/bin/backend.cpp
-INTR=src/bin/interactive.cpp
-BTP =src/bin/backend/text_processing.cpp
-BTM =src/bin/backend/txproc_mdl.cpp
-IIO =src/bin/interactive/IO.cpp
-IIR =src/bin/interactive/IR.cpp
-BKE = $(BACK) $(BTP) $(BTM)
-ITR = $(INTR) $(IIO) $(IIR)
+
 CFL = $(BKE) $(ITR)
-build: $(MAIN) $(MAINP) $(CFL)
+
+build: $(MAIN) $(MAINP)
 	cd ~ && sudo apt update
 	cd ~ && sudo apt upgrade
 	cd ~ && sudo apt install build-essential
@@ -23,9 +17,13 @@ build: $(MAIN) $(MAINP) $(CFL)
 	fi
 	mkdir syll
 	python3 $(MAINP)
-	g++ $(MAIN) -o main $(CFL) $(OPT)
+	g++ $(OPT) $(MAIN) -o main
 	$(MAKE) test
-run:$(MAIN) $(CFL)
+./main: $(MAIN)
+	g++ $(OPT) $(MAIN) -o main
+
+run: ./main
 	./main 1
-test:$(MAIN) $(CFL)
+
+test:$(MAIN)
 	./main
